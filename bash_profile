@@ -33,9 +33,6 @@ export RBENV_ROOT=/usr/local/var/rbenv
 eval "$(rbenv init -)"
 export BUNDLE_PATH="vendor/bundle"
 
-export RUBY_GC_HEAP_INIT_SLOTS=800000
-export RUBY_GC_HEAP_FREE_SLOTS=32768
-export RUBY_GC_MALLOC_LIMIT=50000000
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export BUNDLE_PATH='vendor/bundle'
@@ -45,7 +42,6 @@ export CPPUTEST_HOME="$HOME/Tools/cpputest"
 
 export HTQ_MAVEN_REPO_USERNAME='alex'
 export HTQ_MAVEN_REPO_PASSWORD='put_the_actual_password_here'
-
 
 export PATH="$HOME/.jenv/bin:$PATH"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
