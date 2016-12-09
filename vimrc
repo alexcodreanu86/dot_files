@@ -114,15 +114,6 @@ map <leader>pp :setlocal paste!<cr>
 " Shortcuts to copy and paste from clipboard
 map <LocalLeader>c :w !pbcopy<CR><CR>
 map <LocalLeader>p :r !pbpaste<CR>
-set mouse=a
-
-" Tmux key bindings
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 " CtrlP
 
