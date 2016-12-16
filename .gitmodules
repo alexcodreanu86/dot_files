@@ -1,0 +1,3 @@
+[submodule "vim/bundle/colors"]
+	path = vim/bundle/colors
+	url = git@github.com:chriskempson/vim-tomorrow-theme.git
