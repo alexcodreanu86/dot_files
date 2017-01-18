@@ -1,0 +1,71 @@
+# Personal
+Host mypi
+  HostName 192.168.0.15
+  User alex
+
+
+# Work
+Host htq
+  HostName proxy.hometownquotes.com
+  User alex
+
+Host jenkins
+  HostName jenkins.quoteengine.com
+  User alex
+
+Host pqe
+  HostName proxy.quoteengine.com
+  User alex
+
+Host qqe
+  HostName quartz-dc.quoteengine.com
+  User alex
+
+Host cqe
+  HostName consumer-dc.quoteengine.com
+  User alex
+
+Host *.thisorthat.com
+  User alex
+
+Host *.quoteengine.com
+  User alex
+
+Host jenkins_aws
+  HostName ec2-35-160-18-228.us-west-2.compute.amazonaws.com
+  User ubuntu
+  IdentityFile ~/.ssh/jenkins.pem
+
+Host aws_qqe
+  HostName 52.8.93.246
+  User ubuntu
+  IdentityFile ~/.ssh/htq-prod.pem
+
+Host aws_cqe
+  HostName 52.52.179.243
+  User ubuntu
+  IdentityFile ~/.ssh/htq-prod.pem
+
+Host test_qqe
+  HostName 54.89.73.252
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa_htq_test
+
+Host test_cqe
+  HostName 54.89.73.96
+  User ubuntu
+  IdentityFile ~/.ssh/id_rsa_htq_test
+
+Host joomla
+  HostName 205.209.61.161
+  User alex
+
+HOST backfill
+  HostName 52.53.193.102
+  User ubuntu
+  IdentityFile ~/.ssh/htq-prod.pem
+
+HOST db-staging
+  HostName 54.153.87.68
+  User ubuntu
+  IdentityFile ~/.ssh/htq-prod.pem
