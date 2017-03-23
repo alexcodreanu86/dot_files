@@ -1,11 +1,9 @@
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
-}
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
-}
-
 source ~/.aliases
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+
+function parse_git_branch {
+  __git_ps1 | sed -e "s/(\(.*\))/\1/"
+}
 
 ORANGE="\[\033[1;31m\]"
 BLUE="\[\033[0;36m\]"
@@ -20,7 +18,8 @@ YELLOW="\[\033[0;33m\]"
 LIGHT_YELLOW="\[\033[1;33m\]"
 RESTORE="\[\033[m\]"
 BLINK_RED="\[\033[5;31m\]"
-export PS1="$LIGHT_YELLOW\w $GREEN\$(parse_git_branch)\n$BLUE\u $RED-> $RESTORE"
+export GIT_PS1_SHOWDIRTYSTATE="True"
+export PS1="$LIGHT_YELLOW\w$GREEN\$(parse_git_branch)\n$BLUE\u $RED-> $RESTORE"
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 # alias ls='ls -GFh'
@@ -37,7 +36,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export BUNDLE_PATH='vendor/bundle'
 
-export CATALINA_HOME="$HOME/Tools/apache-tomcat-7.0.70"
+export CATALINA_HOME="$HOME/Tools/apache-tomcat-7.0.75"
 export CPPUTEST_HOME="$HOME/Tools/cpputest"
 
 export HTQ_MAVEN_REPO_USERNAME='alex'
@@ -48,7 +47,17 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export PATH="/usr/local/sbin:$PATH"
 
 # VirtualEnvWrapper location
-export WORKON_HOME=/Users/alexc/.virtualenvs
-
+export WORKON_HOME=/Users/alex/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 export PYTHONSTARTUP=~/.pythonrc
+
+# Lunchy config
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+if [ -f $LUNCHY_DIR/lunchy-completion.bash ]; then
+  . $LUNCHY_DIR/lunchy-completion.bash
+fi
+
+# ebcli config
+export EDITOR=vim
+
+REPOSITORY_PATH=~/.m2/repository
